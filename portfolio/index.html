@@ -506,16 +506,124 @@
             gap: 1rem;
         }
 
+        /* Contact Section - IMPROVED */
+        #contact {
+            background: linear-gradient(135deg, var(--dark) 0%, #2a2a2a 100%);
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(220, 20, 60, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        #contact::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 350px;
+            height: 350px;
+            background: rgba(255, 107, 107, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        #contact h2 {
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        #contact h2::after {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .contact-section-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-section-content > p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-box:hover {
+            background: rgba(220, 20, 60, 0.15);
+            border-color: var(--primary);
+            transform: translateY(-8px);
+        }
+
+        .contact-box i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: block;
+            word-break: break-word;
+        }
+
+        .contact-box a:hover {
+            color: var(--accent);
+            transform: scale(1.05);
+        }
+
         /* Social Links */
         .social-section {
             text-align: center;
-            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-section p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
             margin-top: 2rem;
         }
@@ -526,11 +634,11 @@
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: white;
-            border: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
             cursor: pointer;
             font-size: 1.8rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(220, 20, 60, 0.3);
+            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -538,8 +646,9 @@
         }
 
         .social-btn:hover {
-            transform: translateY(-10px) scale(1.1);
+            transform: translateY(-12px) scale(1.1);
             box-shadow: 0 15px 40px rgba(220, 20, 60, 0.5);
+            border-color: white;
         }
 
         /* Footer */
@@ -548,7 +657,7 @@
             color: white;
             text-align: center;
             padding: 2rem;
-            margin-top: 3rem;
+            margin-top: 0;
         }
 
         /* Responsive */
@@ -584,6 +693,11 @@
                 height: 60px;
                 font-size: 1.5rem;
             }
+
+            .contact-boxes {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 1.5rem;
+            }
         }
 
         .location-badge {
@@ -617,7 +731,8 @@
         <div class="container">
             <div class="hero-content">
                 <div class="profile-img-wrapper">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23dc143c' width='200' height='200'/%3E%3Ctext x='50%' y='50%' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle' font-family='Arial'%3EHuzaifa%3C/text%3E%3C/svg%3E" alt="Huzaifa Mudassar" class="profile-img" onerror="this.style.background='linear-gradient(135deg, #dc143c, #e74c3c)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='👨‍💻';">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23dc143c' width='200' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='80' fill='white' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-weight='bold'%3EHM%3C/text%3E%3C/svg%3E" 
+                         alt="Huzaifa Mudassar" class="profile-img">
                 </div>
                 <div class="location-badge">
                     📍 Ghosia Bad Pirmahal, Punjab, Pakistan
@@ -884,27 +999,58 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section - IMPROVED -->
     <section id="contact">
         <div class="container">
-            <h2><i class="fas fa-envelope"></i> Get In Touch</h2>
-            <div class="section-content social-section">
-                <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
-                    Let's collaborate and create something amazing together!
+            <h2><i class="fas fa-handshake"></i> Let's Work Together</h2>
+            <div class="contact-section-content">
+                <p>
+                    I'm always excited to collaborate on new projects and opportunities. Whether you have a specific project in mind or just want to say hi, feel free to reach out! I'm looking forward to connecting with you.
                 </p>
-                <div class="social-links">
-                    <a href="mailto:huzaifa4513@gmail.com" class="social-btn" title="Email">
+
+                <div class="contact-boxes">
+                    <div class="contact-box">
                         <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="tel:+923451385241" class="social-btn" title="Phone">
+                        <a href="mailto:huzaifa4513@gmail.com" title="Send Email">
+                            huzaifa4513@gmail.com
+                        </a>
+                    </div>
+                    <div class="contact-box">
                         <i class="fas fa-phone"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/muhammad-huzaifa-00a064401" target="_blank" class="social-btn" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/MalikHuzaifaMudassar" target="_blank" class="social-btn" title="GitHub">
+                        <a href="tel:+923451385241" title="Call Me">
+                            +92 345-1385241
+                        </a>
+                    </div>
+                    <div class="contact-box">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/muhammad-huzaifa-00a064401" target="_blank" title="LinkedIn Profile">
+                            LinkedIn Profile
+                        </a>
+                    </div>
+                    <div class="contact-box">
                         <i class="fab fa-github"></i>
-                    </a>
+                        <a href="https://github.com/MalikHuzaifaMudassar" target="_blank" title="GitHub Profile">
+                            @MalikHuzaifaMudassar
+                        </a>
+                    </div>
+                </div>
+
+                <div class="social-section">
+                    <p>Connect with me on social media:</p>
+                    <div class="social-links">
+                        <a href="mailto:huzaifa4513@gmail.com" class="social-btn" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+923451385241" class="social-btn" title="Phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/muhammad-huzaifa-00a064401" target="_blank" class="social-btn" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/MalikHuzaifaMudassar" target="_blank" class="social-btn" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
