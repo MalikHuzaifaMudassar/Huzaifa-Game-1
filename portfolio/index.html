@@ -127,34 +127,15 @@
             margin: 0 auto;
         }
 
-        .profile-img-wrapper {
-            margin-bottom: 2rem;
-            animation: slideDown 0.8s ease-out;
-        }
-
-        @keyframes slideDown {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-
-        .profile-img {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            border: 6px solid white;
-            object-fit: cover;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-img:hover {
-            transform: scale(1.05);
         }
 
         .hero h1 {
@@ -175,17 +156,6 @@
             margin-bottom: 2rem;
             opacity: 0.9;
             animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero-buttons {
@@ -683,11 +653,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .profile-img {
-                width: 150px;
-                height: 150px;
-            }
-
             .social-btn {
                 width: 60px;
                 height: 60px;
@@ -715,7 +680,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">HM</div>
+            <div class="logo"><i class="fas fa-code"></i> HM</div>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -730,10 +695,6 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="profile-img-wrapper">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23dc143c' width='200' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='80' fill='white' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-weight='bold'%3EHM%3C/text%3E%3C/svg%3E" 
-                         alt="Huzaifa Mudassar" class="profile-img">
-                </div>
                 <div class="location-badge">
                     📍 Ghosia Bad Pirmahal, Punjab, Pakistan
                 </div>
