@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huzaifa Mudassar - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -12,156 +13,352 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
 
+        /* Header Section */
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 3rem 0;
+            padding: 4rem 0 3rem;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            border: 4px solid white;
-            margin-bottom: 1.5rem;
+            border: 6px solid white;
             object-fit: cover;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .profile-img-ring {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: spin 8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 0.5rem;
+            font-weight: 700;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
         }
 
         .location {
-            font-size: 1rem;
+            font-size: 1.1rem;
             opacity: 0.9;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
             font-size: 0.95rem;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
         }
 
         .contact-info a {
             color: white;
             text-decoration: none;
-            transition: opacity 0.3s;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .contact-info a:hover {
-            opacity: 0.8;
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
         }
 
         .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            max-width: 1100px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
         }
 
         section {
             background: white;
-            margin-bottom: 2rem;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2.5rem;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.6s ease-out;
         }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+        section:nth-child(5) { animation-delay: 0.5s; }
 
         h2 {
-            color: #667eea;
-            font-size: 1.8rem;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-size: 1.9rem;
             margin-bottom: 1.5rem;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            display: inline-block;
         }
 
+        .section-content {
+            margin-top: 1.5rem;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.5rem;
         }
 
         .skill-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.4s ease;
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
         }
 
         .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-12px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
         }
 
         .skill-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
         }
 
         .skill-card p {
             font-size: 0.9rem;
-            opacity: 0.9;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
         }
 
+        /* Education Section */
         .education-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid #eee;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-left: 5px solid #667eea;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .education-item:last-child {
-            border-bottom: none;
+            margin-bottom: 0;
         }
 
         .education-item h3 {
             color: #667eea;
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
         }
 
         .education-item p {
             color: #666;
             font-size: 0.95rem;
+            margin-bottom: 0.4rem;
         }
 
+        .education-item strong {
+            color: #764ba2;
+        }
+
+        /* Repositories Section */
         .repo-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
         }
 
         .repo-card {
-            background: #f8f9fa;
-            border: 2px solid #667eea;
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: all 0.3s;
+            background: white;
+            border: 3px solid #667eea;
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .repo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .repo-card:hover::before {
+            transform: scaleX(1);
         }
 
         .repo-card:hover {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .repo-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         .repo-card h3 {
             color: #667eea;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            font-weight: 600;
         }
 
         .repo-card:hover h3 {
@@ -169,67 +366,107 @@
         }
 
         .repo-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            color: #666;
+        }
+
+        .repo-card:hover p {
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .repo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             color: #667eea;
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .repo-card:hover .repo-link {
             color: white;
         }
 
+        .repo-link:hover {
+            gap: 1rem;
+        }
+
+        /* Social Links */
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 2rem;
             flex-wrap: wrap;
-            padding: 1.5rem 0;
+            padding: 2rem 0;
+            margin-top: 1.5rem;
         }
 
         .social-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 65px;
+            height: 65px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border-radius: 50%;
             text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .social-link:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .social-link i {
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
             font-size: 1.5rem;
         }
 
+        .social-link:hover {
+            transform: translateY(-10px) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             color: white;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            background: rgba(0, 0, 0, 0.2);
         }
 
         .highlight {
             color: #667eea;
-            font-weight: bold;
+            font-weight: 600;
         }
 
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 1rem;
+            display: inline-block;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .stat-text {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+
+            .title {
+                font-size: 1.1rem;
             }
 
             .contact-info {
@@ -238,8 +475,57 @@
             }
 
             .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .skill-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .skill-icon {
+                font-size: 2rem;
+            }
+
+            .repo-list {
                 grid-template-columns: 1fr;
             }
+
+            section {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                padding: 0.8rem 1.2rem;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .social-link {
+                width: 55px;
+                height: 55px;
+                font-size: 1.2rem;
+            }
+        }
+
+        .stats-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 1.5rem auto;
+            border-radius: 2px;
         }
     </style>
 </head>
@@ -247,14 +533,28 @@
     <!-- Header Section -->
     <header>
         <div class="container">
-            <img src="https://via.placeholder.com/150/dc143c/000000?text=Huzaifa" alt="Profile Picture" class="profile-img">
-            <h1>Huzaifa Mudassar</h1>
-            <div class="location">📍 Ghosia Bad Pirmahal, Punjab, Pakistan</div>
-            <div class="contact-info">
-                <a href="mailto:huzaifa4513@gmail.com">✉️ huzaifa4513@gmail.com</a>
-                <a href="tel:+923451385241">📞 +92 345-1385241</a>
-                <a href="https://linkedin.com/in/muhammad-huzaifa-00a064401" target="_blank">LinkedIn</a>
-                <a href="https://github.com/MalikHuzaifaMudassar" target="_blank">GitHub</a>
+            <div class="header-content">
+                <div class="profile-img-container">
+                    <div class="profile-img-ring"></div>
+                    <img src="https://raw.githubusercontent.com/MalikHuzaifaMudassar/Huzaifa-Game-1/master/profile.jpg" alt="Huzaifa Mudassar - Profile Picture" class="profile-img" onerror="this.src='https://via.placeholder.com/200/667eea/ffffff?text=Huzaifa+Mudassar'">
+                </div>
+                <h1>Huzaifa Mudassar</h1>
+                <div class="title">🚀 Multi-Skilled Professional | AI & Web Developer</div>
+                <div class="location">📍 Ghosia Bad Pirmahal, Punjab, Pakistan</div>
+                <div class="contact-info">
+                    <a href="mailto:huzaifa4513@gmail.com" title="Send Email">
+                        <i class="fas fa-envelope"></i> huzaifa4513@gmail.com
+                    </a>
+                    <a href="tel:+923451385241" title="Call Me">
+                        <i class="fas fa-phone"></i> +92 345-1385241
+                    </a>
+                    <a href="https://linkedin.com/in/muhammad-huzaifa-00a064401" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/MalikHuzaifaMudassar" target="_blank" title="GitHub Profile">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -263,132 +563,180 @@
     <div class="container">
         <!-- About Section -->
         <section>
-            <h2>About Me</h2>
-            <p>
-                I am a passionate and versatile professional with expertise in multiple domains including AI development, 
-                web development, mobile app development, and content creation. With 3+ years of experience in AI automation 
-                across YouTube, TikTok, and Instagram, I have successfully helped numerous clients automate their content 
-                operations and grow their digital presence. I'm dedicated to delivering high-quality solutions and staying 
-                updated with the latest technologies.
-            </p>
+            <h2><i class="fas fa-user-circle"></i> About Me</h2>
+            <div class="section-content">
+                <p class="about-text">
+                    I am a passionate and versatile professional with expertise in multiple domains including <strong>AI Development</strong>, 
+                    <strong>Web Development</strong>, <strong>Mobile App Development</strong>, and <strong>Content Creation</strong>. 
+                    With <strong>3+ years of specialized experience</strong> in AI automation across YouTube, TikTok, and Instagram, 
+                    I have successfully helped numerous clients automate their content operations and grow their digital presence. 
+                    <br><br>
+                    I am dedicated to delivering <strong>high-quality solutions</strong> and staying updated with the latest technologies. 
+                    Whether you need AI-powered automation, web development, or digital marketing expertise, I'm here to help you achieve your goals.
+                </p>
+                <div class="stats-section">
+                    <div class="stat-box">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-text">Years Experience</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-text">Skills Mastered</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-text">Passion & Drive</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Skills Section -->
         <section>
-            <h2>Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>🤖 AI Development</h3>
-                    <p>Building intelligent systems and AI-powered solutions</p>
-                </div>
-                <div class="skill-card">
-                    <h3>⚙️ AI Automation</h3>
-                    <p>3+ years of experience automating processes</p>
-                </div>
-                <div class="skill-card">
-                    <h3>📱 App Development</h3>
-                    <p>Creating mobile applications with modern frameworks</p>
-                </div>
-                <div class="skill-card">
-                    <h3>🌐 Web Development</h3>
-                    <p>Full-stack web development solutions</p>
-                </div>
-                <div class="skill-card">
-                    <h3>💬 Prompt Engineering</h3>
-                    <p>Optimizing AI prompts for better results</p>
-                </div>
-                <div class="skill-card">
-                    <h3>📊 Social Media Automation</h3>
-                    <p>YouTube, TikTok & Instagram expertise</p>
-                </div>
-                <div class="skill-card">
-                    <h3>🎥 Content Creation</h3>
-                    <p>Video editing and content writing</p>
-                </div>
-                <div class="skill-card">
-                    <h3>💰 Forex Trading</h3>
-                    <p>Financial market analysis and trading</p>
-                </div>
-                <div class="skill-card">
-                    <h3>🎨 Graphic Design</h3>
-                    <p>Professional design and branding</p>
-                </div>
-                <div class="skill-card">
-                    <h3>⭐ Review Management</h3>
-                    <p>Trustpilot & website reviews specialist</p>
-                </div>
-                <div class="skill-card">
-                    <h3>📺 YouTube Seller</h3>
-                    <p>Channel monetization and growth</p>
-                </div>
-                <div class="skill-card">
-                    <h3>📢 TikTok Ads Expert</h3>
-                    <p>TikTok advertising and promotion</p>
+            <h2><i class="fas fa-star"></i> Skills & Expertise</h2>
+            <div class="section-content">
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">🤖</div>
+                        <h3>AI Development</h3>
+                        <p>Building intelligent systems and AI-powered solutions</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">⚙️</div>
+                        <h3>AI Automation</h3>
+                        <p>3+ years of professional automation experience</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">📱</div>
+                        <h3>App Development</h3>
+                        <p>Creating mobile applications with modern frameworks</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🌐</div>
+                        <h3>Web Development</h3>
+                        <p>Full-stack web development solutions & design</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">💬</div>
+                        <h3>Prompt Engineering</h3>
+                        <p>Optimizing AI prompts for maximum effectiveness</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">📊</div>
+                        <h3>Social Media Automation</h3>
+                        <p>YouTube, TikTok & Instagram expertise</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🎥</div>
+                        <h3>Content Creation</h3>
+                        <p>Video editing, writing & production</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">💰</div>
+                        <h3>Forex Trading</h3>
+                        <p>Financial market analysis & trading strategies</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🎨</div>
+                        <h3>Graphic Design</h3>
+                        <p>Professional design & brand identity</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">⭐</div>
+                        <h3>Review Management</h3>
+                        <p>Trustpilot & website reviews specialist</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">📺</div>
+                        <h3>YouTube Specialist</h3>
+                        <p>Channel monetization & growth strategies</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">📢</div>
+                        <h3>TikTok Ads Expert</h3>
+                        <p>TikTok advertising & promotion campaigns</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Education Section -->
         <section>
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>ICS (Intermediate in Computer Science)</h3>
-                <p><strong>Institution:</strong> Punjab College, Pirmahal</p>
-                <p><strong>Status:</strong> Completed</p>
-            </div>
-            <div class="education-item">
-                <h3>BSSE (Bachelor of Science in Software Engineering)</h3>
-                <p><strong>University:</strong> Virtual University of Pakistan</p>
-                <p><strong>Recognition:</strong> HEC Recognized</p>
-                <p><strong>Status:</strong> Currently Enrolled</p>
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="section-content">
+                <div class="education-item">
+                    <h3>📚 ICS (Intermediate in Computer Science)</h3>
+                    <p><strong>Institution:</strong> Punjab College, Pirmahal</p>
+                    <p><strong>Status:</strong> ✅ Completed</p>
+                </div>
+                <div class="education-item">
+                    <h3>🎓 BSSE (Bachelor of Science in Software Engineering)</h3>
+                    <p><strong>University:</strong> Virtual University of Pakistan</p>
+                    <p><strong>Recognition:</strong> 🏆 HEC Recognized</p>
+                    <p><strong>Status:</strong> 📖 Currently Enrolled</p>
+                </div>
             </div>
         </section>
 
         <!-- GitHub Repositories Section -->
         <section>
-            <h2>My GitHub Repositories</h2>
-            <p style="margin-bottom: 1.5rem; color: #666;">
-                Check out my projects on GitHub: <a href="https://github.com/MalikHuzaifaMudassar" target="_blank" class="highlight">@MalikHuzaifaMudassar</a>
-            </p>
-            <div class="repo-list">
-                <div class="repo-card">
-                    <h3>Huzaifa-Game-1</h3>
-                    <p><strong>Language:</strong> Python</p>
-                    <p>Game development project with Python</p>
-                    <a href="https://github.com/MalikHuzaifaMudassar/Huzaifa-Game-1" target="_blank" class="repo-link">View Repository →</a>
-                </div>
-                <div class="repo-card">
-                    <h3>ai-tutor-app</h3>
-                    <p><strong>Type:</strong> AI Application</p>
-                    <p>Intelligent tutoring application powered by AI</p>
-                    <a href="https://github.com/MalikHuzaifaMudassar/ai-tutor-app" target="_blank" class="repo-link">View Repository →</a>
+            <h2><i class="fab fa-github"></i> GitHub Repositories</h2>
+            <div class="section-content">
+                <p style="color: #666; margin-bottom: 1.5rem;">
+                    Explore my projects on GitHub: <a href="https://github.com/MalikHuzaifaMudassar" target="_blank" class="highlight">@MalikHuzaifaMudassar</a>
+                </p>
+                <div class="repo-list">
+                    <div class="repo-card">
+                        <div class="repo-icon">🎮</div>
+                        <h3>Huzaifa-Game-1</h3>
+                        <p><strong>Language:</strong> Python 🐍</p>
+                        <p>Advanced game development project showcasing Python programming skills</p>
+                        <a href="https://github.com/MalikHuzaifaMudassar/Huzaifa-Game-1" target="_blank" class="repo-link">
+                            View Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="repo-card">
+                        <div class="repo-icon">🤖</div>
+                        <h3>ai-tutor-app</h3>
+                        <p><strong>Type:</strong> AI Application 🧠</p>
+                        <p>Intelligent tutoring application powered by cutting-edge AI technology</p>
+                        <a href="https://github.com/MalikHuzaifaMudassar/ai-tutor-app" target="_blank" class="repo-link">
+                            View Repository <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Social Media Section -->
         <section>
-            <h2>Connect With Me</h2>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/muhammad-huzaifa-00a064401" target="_blank" class="social-link" title="LinkedIn">
-                    in
-                </a>
-                <a href="https://github.com/MalikHuzaifaMudassar" target="_blank" class="social-link" title="GitHub">
-                    ⚙️
-                </a>
-                <a href="mailto:huzaifa4513@gmail.com" class="social-link" title="Email">
-                    ✉️
-                </a>
-                <a href="tel:+923451385241" class="social-link" title="Phone">
-                    📱
-                </a>
+            <h2><i class="fas fa-link"></i> Connect With Me</h2>
+            <div class="section-content">
+                <p style="text-align: center; color: #666; margin-bottom: 1.5rem;">
+                    Let's connect and collaborate on amazing projects!
+                </p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/muhammad-huzaifa-00a064401" target="_blank" class="social-link" title="LinkedIn Profile">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/MalikHuzaifaMudassar" target="_blank" class="social-link" title="GitHub Profile">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:huzaifa4513@gmail.com" class="social-link" title="Send Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+923451385241" class="social-link" title="Call Me">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
             </div>
         </section>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Huzaifa Mudassar. All rights reserved. | Portfolio Website</p>
+        <p>&copy; 2026 <strong>Huzaifa Mudassar</strong> | All Rights Reserved</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Built with ❤️ | Portfolio Website</p>
     </footer>
 </body>
 </html>
